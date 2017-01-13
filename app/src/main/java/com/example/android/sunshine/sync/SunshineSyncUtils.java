@@ -58,7 +58,7 @@ public class SunshineSyncUtils {
         /* Create the Job to periodically sync Sunshine */
         Job syncSunshineJob = dispatcher.newJobBuilder()
                 /* The Service that will be used to sync Sunshine's data */
-                .setService(SunshineFirebaseJobService.class)
+                .setService(SunshineFirebaseJobService.class) // here is the SunshineFirebaseJobService.
                 /* Set the UNIQUE tag used to identify this Job */
                 .setTag(SUNSHINE_SYNC_TAG)
                 /*
@@ -71,12 +71,12 @@ public class SunshineSyncUtils {
                 /*
                  * We want Sunshine's weather data to stay up to date, so we tell this Job to recur.
                  */
-                .setRecurring(true)
+                .setRecurring(false)
                 /*
                  * setLifetime sets how long this job should persist. The options are to keep the
                  * Job "forever" or to have it die the next time the device boots up.
                  */
-                .setLifetime(Lifetime.FOREVER)
+                .setLifetime(Lifetime.UNTIL_NEXT_BOOT)
                 .setTrigger(Trigger.executionWindow(
                         SYNC_INTERVAL_SECONDS,
                         SYNC_INTERVAL_SECONDS + SYNC_FLEXTIME_SECONDS))

@@ -38,6 +38,7 @@ public class SunshineSyncTask {
      *
      * @param context Used to access utility methods and the ContentResolver
      */
+    // this is called within doInBackground of AsyncTask within SunshineFirebaseJobService
     synchronized public static void syncWeather(Context context) {
 
         try {

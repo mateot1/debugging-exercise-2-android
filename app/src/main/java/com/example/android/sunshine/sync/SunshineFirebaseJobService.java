@@ -23,7 +23,7 @@ import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 import com.firebase.jobdispatcher.RetryStrategy;
 
-
+// this service is called at regular intervals from SunshineSyncUtils
 public class SunshineFirebaseJobService extends JobService {
 
     private AsyncTask<Void, Void, Void> mFetchWeatherTask;

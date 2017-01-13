@@ -168,6 +168,7 @@ public final class NetworkUtils {
      * @return The contents of the HTTP response, null if no response
      * @throws IOException Related to network and stream reading
      */
+    // this is called from SunshineSyncTask
     public static String getResponseFromHttpUrl(URL url) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
@@ -182,6 +183,7 @@ public final class NetworkUtils {
                 response = scanner.next();
             }
             scanner.close();
+            Log.v("response", response);
             return response;
         } finally {
             urlConnection.disconnect();
